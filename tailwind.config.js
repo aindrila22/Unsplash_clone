@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        'rgb-white': 'rgb(217, 217, 217, 0.12)',
+        // Add more custom colors as needed
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
