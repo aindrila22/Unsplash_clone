@@ -30,10 +30,10 @@ export default async function AuthButton() {
       </form>
     </div>
   ) : (
-    <>
+    <div className='flex w-auto justify-end items-center px-4 gap-6'>
     <Link
       href="/login"
-      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+      className="py-2 px-3 text-lg flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
     >
       Login
     </Link>
@@ -43,6 +43,6 @@ export default async function AuthButton() {
     >
       Create Account
     </Link>
-    </>
+    </div>
   )
 }

@@ -2,12 +2,17 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import bg1 from "../assets/bg1.png";
+import bg2 from "../assets/bg2.png";
+import BouncingLoader from "./Loader";
 
 const Background = ({ children }: { children: React.ReactNode }) => {
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [backgroundImage, setBackgroundImage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchImage = async () => {
+      setLoading(true);
       try {
         const response = await axios.get("https://pixabay.com/api/", {
           params: {
@@ -26,23 +31,32 @@ const Background = ({ children }: { children: React.ReactNode }) => {
         setBackgroundImage(randomImage.largeImageURL);
       } catch (error) {
         console.error("Error fetching image:", error);
+        setBackgroundImage([bg1, bg2][Math.floor(Math.random() * 2)].src);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchImage();
   }, []);
+
   return (
-    <div
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100%",
-        height: "100vh",
-      }}
-    >
-      {children}
-    </div>
+    <>
+      {loading && <BouncingLoader />}
+      {!loading && (
+        <div
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            width: "100%",
+            height: "100vh",
+          }}
+        >
+          {children}
+        </div>
+      )}
+    </>
   );
 };
 
