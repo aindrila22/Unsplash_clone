@@ -16,13 +16,13 @@ const Search = () => {
   const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
   const [query, setQuery] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedObject, setSelectedObject] = useState(null);
 
-  const handleOpenImage = (index:any) =>{
-    setSelectedImage(index);
+  const handleOpenImage = (elem:any) =>{
+    setSelectedObject(elem);
   }
   const handleClose = () =>{
-    setSelectedImage(null);
+    setSelectedObject(null);
   }
 
   const handleSubmit = async (e: any) => {
@@ -50,12 +50,12 @@ const Search = () => {
     }
   };
   const images = useSelector((state: RootState) => state.images.images);
-
+console.log(selectedObject)
   return (
     <>
       <div className="max-w-5xl grid place-items-center w-full mx-auto px-5 md:px-0">
         {images.length <= 0 && (
-          <div className="lg:text-7xl md:text-5xl text-3xl text-center text-white leading-tight font-extrabold w-full">
+          <div className="lg:text-7xl md:text-5xl text-3xl mt-10 text-center text-white leading-tight font-extrabold w-full">
             Discover over 2,000,000 free Stock Images
           </div>
         )}
@@ -100,7 +100,7 @@ const Search = () => {
             >
               <Masonry gutter="4">
                 {images.map((elem, idx) => (
-                  <div onClick={()=>handleOpenImage(elem.largeImageURL)} key={idx} className="w-full p-2">
+                  <div onClick={()=>handleOpenImage({elem})} key={idx} className="w-full p-2">
                     <Image
                       key={idx}
                       src={elem.largeImageURL}
@@ -109,7 +109,7 @@ const Search = () => {
                       height={100}
                       className="w-full"
                     />
-                    <div className="w-full flex flex-wrap justify-start items-center gap-2 my-3">
+                    <div className="w-full flex flex-wrap justify-start items-center gap-2">
                       {elem.tags.split(",").map((tag: any, index: number) => (
                         <div key={index} className="bg-[#F5F5F5] p-2 rounded-md text-[#767676] text-xs md:text-sm">
                           {tag.trim()}{" "}
@@ -124,7 +124,7 @@ const Search = () => {
         </div>
       )}
       {
-        selectedImage && <IDetails url={selectedImage} handleClose={handleClose}/>
+        selectedObject && <IDetails obj={selectedObject} handleClose={handleClose}/>
       }
     </>
   );
