@@ -19,13 +19,14 @@ const Nav = ({ user, signout }: any) => {
             </button>
             {isDrawerOpen && (
               <div className=" fixed top-0 left-0 w-full h-full bg-black bg-opacity-80">
+
+                <div className="px-5 flex flex-col gap-4 text-base h-full pt-10 bg-black text-white">
                 <div
                   onClick={() => setDrawerOpen(false)}
-                  className="py-4 px-6 float-right text-xl cursor-pointer"
+                  className="py-4 px-6 text-right text-xl cursor-pointer"
                 >
                   X
                 </div>
-                <div className="px-5 flex flex-col gap-4 text-base mt-10">
                   {user && (
                     <div className="flex flex-col">
                       <div className="py-10"> Hey, {user.email}!</div>
@@ -66,17 +67,18 @@ const Nav = ({ user, signout }: any) => {
             </div>
             {isDrawerOpen && (
               <div className=" fixed top-0 left-0 w-full h-full bg-black backdrop-blur-3xl bg-opacity-80">
+
+                <div className="px-5 flex flex-col gap-4 text-base pt-10 bg-black text-white h-full">
                 <div
                   onClick={() => setDrawerOpen(false)}
-                  className="py-4 px-6 float-right text-xl cursor-pointer"
+                  className="py-4 px-6 text-right text-xl cursor-pointer"
                 >
                   X
                 </div>
-                <div className="px-5 flex flex-col gap-4 text-base mt-20">
                   <Link
                     href="/login"
                     onClick={() => setDrawerOpen(false)}
-                    className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+                    className="py-2 px-3 mb-10 text-lg flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
                   >
                     Login
                   </Link>
