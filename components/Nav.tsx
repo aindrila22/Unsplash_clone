@@ -18,7 +18,7 @@ const Nav = ({ user, signout }: any) => {
               ☰
             </button>
             {isDrawerOpen && (
-              <div className=" fixed top-0 left-0 w-full h-full bg-black backdrop-blur-md bg-opacity-50">
+              <div className=" fixed top-0 left-0 w-full h-full bg-black backdrop-blur-3xl bg-opacity-50">
                 <div
                   onClick={() => setDrawerOpen(false)}
                   className="py-4 px-6 float-right text-xl cursor-pointer"
@@ -65,7 +65,7 @@ const Nav = ({ user, signout }: any) => {
               </button>
             </div>
             {isDrawerOpen && (
-              <div className=" fixed top-0 left-0 w-full h-full bg-black backdrop-blur-md bg-opacity-50">
+              <div className=" fixed top-0 left-0 w-full h-full bg-black backdrop-blur-3xl bg-opacity-50">
                 <div
                   onClick={() => setDrawerOpen(false)}
                   className="py-4 px-6 float-right text-xl cursor-pointer"
