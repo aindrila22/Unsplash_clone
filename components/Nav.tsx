@@ -18,18 +18,18 @@ const Nav = ({ user, signout }: any) => {
               ☰
             </button>
             {isDrawerOpen && (
-              <div className=" fixed top-0 left-0 w-full h-full bg-black bg-opacity-80">
+              <div className=" fixed top-0 left-0 w-full h-full bg-black">
 
-                <div className="px-5 flex flex-col gap-4 text-base h-full pt-10 bg-black text-white">
+                <div className="px-5 flex flex-col gap-4 h-screen text-base pt-10 bg-black text-white">
                 <div
                   onClick={() => setDrawerOpen(false)}
-                  className="py-4 px-6 text-right text-xl cursor-pointer"
+                  className="py-4 px-6 text-right text-xl cursor-pointer "
                 >
                   X
                 </div>
                   {user && (
-                    <div className="flex flex-col">
-                      <div className="py-10"> Hey, {user.email}!</div>
+                    <div className="flex flex-col ">
+                      <div className="py-10 "> Hey, {user.email}!</div>
                       <Link
                         className="pb-10"
                         onClick={() => setDrawerOpen(false)}
@@ -66,9 +66,9 @@ const Nav = ({ user, signout }: any) => {
               </button>
             </div>
             {isDrawerOpen && (
-              <div className=" fixed top-0 left-0 w-full h-full bg-black backdrop-blur-3xl bg-opacity-80">
+              <div className=" fixed top-0 left-0 w-full h-full bg-black">
 
-                <div className="px-5 flex flex-col gap-4 text-base pt-10 bg-black text-white h-full">
+                <div className="px-5 flex flex-col gap-4 text-base pt-10 h-screen bg-black text-white">
                 <div
                   onClick={() => setDrawerOpen(false)}
                   className="py-4 px-6 text-right text-xl cursor-pointer"
