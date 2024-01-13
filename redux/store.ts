@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import pixabayReducer from './slice/image';
+import favoritesReducer from './slice/favorites';
 
 
 const store = configureStore({
   reducer: {
-    images: pixabayReducer
+    images: pixabayReducer,
+    favorites: favoritesReducer
   },
 });
 

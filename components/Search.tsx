@@ -38,10 +38,10 @@ const Search = () => {
         },
       });
       const data = response.data;
-      console.log(data);
+
       dispatch(setImages(data.hits));
       setQuery(searchInput);
-      console.log(data);
+
     } catch (error: any) {
       console.error("Error setting up the request", error.message);
     } finally {
@@ -50,7 +50,7 @@ const Search = () => {
     }
   };
   const images = useSelector((state: RootState) => state.images.images);
-console.log(selectedObject)
+
   return (
     <>
       <div className="max-w-5xl grid place-items-center w-full mx-auto px-5 md:px-0">
