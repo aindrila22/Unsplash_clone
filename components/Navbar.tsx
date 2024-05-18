@@ -22,9 +22,9 @@ const Navbar = () => {
           <a href="/" className="text-lg font-bold">
             HomePage
           </a>
-          <div className="flex justify-center items-center gap-3">
+          {/* <div className="flex justify-center items-center gap-3">
             {isSupabaseConnected && <AuthButton />}
-          </div>
+          </div> */}
         </div>
       </nav>
       <nav className="w-full md:hidden fixed top-0 left-0 flex justify-center border-2 bg-[#D9D9D91D]/30 text-white rounded-md border-[#D9D9D91D]/50 backdrop-blur-lg z-50 h-20 mb-20">
@@ -32,7 +32,7 @@ const Navbar = () => {
           <a href="/" className="text-lg">
             HomePage
           </a>
-          {isSupabaseConnected && <AuthButton />}
+          {/* {isSupabaseConnected && <AuthButton />} */}
         </div>
       </nav>
     </>
